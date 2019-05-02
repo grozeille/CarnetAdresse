@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="CarnetAdresse" default="compile">
+	<property name="ExecutableName" value="CarnetAdresse"/>
+
+    <path id="CarnetAdresse.classpath">
+    	<pathelement location="/usr/share/java/glib0.4.jar" />
+        <pathelement location="/usr/share/java/gtk2.10.jar" />
+        <pathelement location="/usr/share/java/glade2.12.jar" />    	
+        <pathelement location="/usr/share/java/gnome2.12.jar" />
+    	<!--<pathelement location="/usr/share/java/gtk.jar" />-->
+    </path>
+    <target name="compile" depends="clean"> 
+        <javac debug="yes" classpathref="CarnetAdresse.classpath" includeJavaRuntime="no" compiler="gcj">
+            <src path="src" />
+            <include name="**/*.java" />
+            <compilerarg line="--main=org.mathias.CarnetAdresse.Application -lgnomejava -lgladejava -lgtkjava -lglibjava -o ${ExecutableName}" />
+        </javac>
+    </target>
+	<target name="clean">
+		<delete>
+			<fileset dir=".">
+			    <include name="${ExecutableName}"/>
+			</fileset>
+		</delete>
+	</target>
+	<target name="exec" depends="compile">
+		<exec dir="." executable="./${ExecutableName}"/>
+	</target>
+</project>

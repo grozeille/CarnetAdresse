@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: org.mathias.CarnetAdresse.Application
+Class-Path: ./glib0.2-0.2.4.jar ./gtk2.8-2.8.4.jar ./glade2.12-2.12.3.jar ./gnome2.12-2.12.2.jar
